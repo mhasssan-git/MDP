@@ -1,0 +1,12 @@
+<!-- res/drawable/border_shape.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Set the shape to a rectangle -->
+    <solid android:color="#FFFFFF" /> <!-- Set the fill color as needed -->
+
+    <!-- Set the stroke (border) attributes -->
+    <stroke
+        android:width="2dp"
+    android:color="#000" />
+
+</shape>
