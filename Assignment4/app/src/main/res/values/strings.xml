@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">loginpage</string>
+    <string name="externalSignInText">Sign in to <b>Zappos.com</b> using your Amazon account</string>
+    <string name="sing_in"><b>Sing in</b></string>
+
+    <string name="sing_up"><b>Create Account</b></string>
+    <string name="forget_password">Forget password?</string>
+    <string name="keep_me_signed_in">Keep me signed in. <a href="" style="text-decoration:none;color:#2e5bbe">Details</a></string>
+    <string name="b_continue_b"><b>Continue</b></string>
+</resources>

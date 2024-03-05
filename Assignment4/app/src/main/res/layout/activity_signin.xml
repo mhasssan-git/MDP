@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".SigninActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topviewbg"
+        android:paddingTop="30dp"
+        android:paddingBottom="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:src="@drawable/amazon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rlSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/tvsignin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/sing_in"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/llsignin"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/signinlayoutborder"
+        android:orientation="vertical"
+        android:padding="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/rlSignIn"
+        app:layout_constraintStart_toStartOf="@+id/rlSignIn"
+        app:layout_constraintTop_toBottomOf="@+id/rlSignIn">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borderbottom"
+            android:hint="Email"
+            android:padding="15dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:inputType="textPassword"
+            android:hint="Amazon password"
+            android:padding="15dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llshowpwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/llsignin"
+        app:layout_constraintStart_toStartOf="@+id/llsignin"
+        app:layout_constraintTop_toBottomOf="@+id/llsignin">
+
+       <CheckBox
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show password"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnSignin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="#FFFFC107"
+        android:onClick="btn_signin_click"
+        android:textColor="#111"
+        android:backgroundTintMode="screen"
+        android:text="@string/sing_in"
+        app:layout_constraintEnd_toEndOf="@+id/llshowpwd"
+        app:layout_constraintStart_toStartOf="@+id/llshowpwd"
+        app:layout_constraintTop_toBottomOf="@+id/llshowpwd" />
+
+    <RelativeLayout
+        android:id="@+id/rlNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnSignin"
+        app:layout_constraintStart_toStartOf="@+id/btnSignin"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignin"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/borderbottom"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New to Amazon?"
+            android:layout_marginTop="8dp"
+            android:background="@color/bg"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:id="@+id/tvNew"
+            android:textColor="#535353"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:id="@+id/btnCreateNew"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F1F0EE"
+        android:textColor="#111"
+        android:onClick="btn_signup_click"
+        android:text="Create a new Amazon account"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/rlNew"
+        app:layout_constraintStart_toStartOf="@+id/rlNew"
+        app:layout_constraintTop_toBottomOf="@+id/rlNew"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
