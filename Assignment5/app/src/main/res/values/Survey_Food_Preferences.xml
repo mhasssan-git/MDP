@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_name">Food Preferences</string>
+    <string-array name="survey_fav_cuisine">
+        <item>Chinese</item>
+        <item>French</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Thai</item>
+        <item>Turkish</item>
+    </string-array>
+    <string-array name="survey_eat_frequency">
+        <item>Never</item>
+        <item>Rarely</item>
+        <item>Sometimes</item>
+        <item>Frequently</item>
+    </string-array>
+    <string-array name="survey_prefs_spicy">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="survey_prefs_veg">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="survey_prefs_seafood">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string name="what_is_your_favorite_cuisine">What is your favorite cuisine</string>
+    <string name="how_often_do_you_eat_out">How often do you eat out?</string>
+    <string name="do_you_prefer_spicy_food">do you prefer spicy food</string>
+    <string name="do_you_prefer_vegetarian_food">Do you prefer vegetarian food</string>
+    <string name="do_you_like_seafood">Do you like seafood</string>
+</resources>

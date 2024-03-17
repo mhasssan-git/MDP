@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="survey_is_veg">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="survey_prefs_organic">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="survey_prefs_dairy">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="survey_prefs_fast_food">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="survey_have_allergies">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+</resources>
