@@ -29,7 +29,7 @@
     </string-array>
     <string name="what_is_your_favorite_cuisine">What is your favorite cuisine</string>
     <string name="how_often_do_you_eat_out">How often do you eat out?</string>
-    <string name="do_you_prefer_spicy_food">do you prefer spicy food</string>
+    <string name="do_you_prefer_spicy_food">Do you prefer spicy food</string>
     <string name="do_you_prefer_vegetarian_food">Do you prefer vegetarian food</string>
     <string name="do_you_like_seafood">Do you like seafood</string>
 </resources>

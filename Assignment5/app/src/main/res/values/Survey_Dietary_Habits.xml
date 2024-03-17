@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="activity_name_dietary">Dietary Habits</string>
     <string-array name="survey_is_veg">
         <item>Yes</item>
         <item>No</item>
@@ -20,4 +21,10 @@
         <item>Yes</item>
         <item>No</item>
     </string-array>
+
+    <string name="are_you_veg">Are you vegetarian?</string>
+    <string name="do_you_prefer_organic_food">Do you prefer organic food?</string>
+    <string name="do_you_consume_dairy">Do you consume dairy products?</string>
+    <string name="do_you_eat_fast_food">Do you eat fast food?</string>
+    <string name="do_you_have_allergies">Do you have any food allergies?</string>
 </resources>
