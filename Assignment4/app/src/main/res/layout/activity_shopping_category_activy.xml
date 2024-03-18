@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShoppingCategoryActivy">
+    tools:context=".ShoppingCategoryActivity">
 
     <TextView
         android:id="@+id/tvWelcome"
@@ -53,6 +53,8 @@
                 android:id="@+id/llLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onItemClicked"
+                android:tag="@string/home_and_kitchen"
                 android:orientation="vertical">
 
                 <ImageView
@@ -71,6 +73,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:onClick="onItemClicked"
+                android:tag="@string/pet_supplies"
                 android:orientation="vertical">
 
                 <ImageView
@@ -96,7 +100,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:onClick="onItemClicked"
+                android:tag="@string/beauty_and_personal_care"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -115,6 +120,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onItemClicked"
+                android:tag="@string/toys_and_games"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
