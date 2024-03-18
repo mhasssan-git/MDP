@@ -10,7 +10,7 @@
 
 - Food Preferences Activity
 
-![Alt text](screenshots/2.png)
+![Alt text](screenshots/3.png)
 
 - Dietary Habit Activity
 

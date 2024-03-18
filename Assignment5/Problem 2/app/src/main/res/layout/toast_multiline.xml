@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_layout_root"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:background="#80000000"
+    android:padding="16dp"
+    android:layout_height="wrap_content">
+<TextView
+
+    android:id="@+id/tvMessage"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="16sp"
+    android:textColor="#FFFFFF"
+    android:background="#80000000"
+    android:padding="16dp"
+    android:maxLines="5"
+    android:scrollbars="vertical"
+    android:scrollbarStyle="insideOverlay"
+    android:fadeScrollbars="false"
+    android:text="This is a multiline toast message." />
+</LinearLayout>
