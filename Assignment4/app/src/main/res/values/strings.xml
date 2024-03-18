@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">loginpage</string>
     <string name="externalSignInText">Sign in to <b>Zappos.com</b> using your Amazon account</string>
-    <string name="sing_in"><b>Sing in</b></string>
+    <string name="sign_in"><b>Sign in</b></string>
 
-    <string name="sing_up"><b>Create Account</b></string>
+    <string name="sign_up"><b>Create Account</b></string>
     <string name="forget_password">Forget password?</string>
     <string name="keep_me_signed_in">Keep me signed in. <a style="text-decoration:none;color:#2e5bbe" href="">Details</a></string>
     <string name="b_continue_b"><b>Continue</b></string>
+    <string name="pet_supplies">Pet supplies</string>
+    <string name="toys_and_games">Toys and games</string>
+    <string name="home_and_kitchen">Home and Kitchen</string>
+    <string name="beauty_and_personal_care">Beauty and personal care</string>
 </resources>

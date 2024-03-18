@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/sing_in"
+            android:text="@string/sign_in"
             android:textAlignment="center"
             android:textSize="30sp" />
     </RelativeLayout>
@@ -68,6 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/rlSignIn">
 
         <EditText
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/borderbottom"
@@ -75,11 +76,12 @@
             android:padding="15dp" />
 
         <EditText
+            android:id="@+id/etPwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
+            android:hint="Password"
             android:inputType="textPassword"
-            android:hint="Amazon password"
             android:padding="15dp" />
     </LinearLayout>
     <LinearLayout
@@ -96,6 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/llsignin">
 
        <CheckBox
+           android:id="@+id/chkShowPwd"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
         <TextView
@@ -116,7 +119,7 @@
         android:onClick="btn_signin_click"
         android:textColor="#111"
         android:backgroundTintMode="screen"
-        android:text="@string/sing_in"
+        android:text="@string/sign_in"
         app:layout_constraintEnd_toEndOf="@+id/llshowpwd"
         app:layout_constraintStart_toStartOf="@+id/llshowpwd"
         app:layout_constraintTop_toBottomOf="@+id/llshowpwd" />
