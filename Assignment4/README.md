@@ -28,3 +28,6 @@
 
 - Password not matched error message in signin page
 ![Alt text](screenshots/8.png)
+
+- Toast message indicating the selected category. 
+![Alt text](screenshots/9.png)

@@ -20,7 +20,7 @@ class ShoppingCategoryActivity : AppCompatActivity() {
 
     fun onItemClicked(view: View) {
         val data = view.tag as String
-        val message="You have selected Category \"$data\" !!"
+        val message="You have selected Category \"$data\"so !!"
         Toast.makeText(this@ShoppingCategoryActivity,message,Toast.LENGTH_SHORT).show()
     }
 }
