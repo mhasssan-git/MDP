@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val sportsAdapter=SportsAdapter(this)
+        val sportsAdapter=SportsPagerAdapter(this)
         binding.SportsPage.adapter=sportsAdapter
         binding.tabSports.tabGravity=TabLayout.GRAVITY_FILL
         TabLayoutMediator(binding.tabSports,binding.SportsPage){tab,position->
