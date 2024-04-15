@@ -5,32 +5,45 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.miu.sports.databinding.FragmentNewsBinding
 import com.miu.sports.databinding.FragmentSportsBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [NewsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NewsFragment : Fragment() {
-private lateinit var _binding:FragmentSportsBinding
+    private lateinit var _binding: FragmentNewsBinding
+    private lateinit var _data:ArrayList<News>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        _data = arrayListOf()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding=FragmentSportsBinding.inflate(inflater,container,false)
+        _binding=FragmentNewsBinding.inflate(inflater,container,false)
         return _binding.root
     }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val data = getDataList()
+        val adapter = NewsRecyleViewAdapter(data)
+        _binding.rvNews.layoutManager = LinearLayoutManager(requireContext())
+        _binding.rvNews.adapter = adapter
+        _binding.btnAddNews.setOnClickListener { _ ->
+            val dialog = NewsAddDialogFragment()
+            dialog.SetOnAddListner(object : OnAddListener<Data> {
+                override fun saveData(data: Data) {
+                    val d = data as News
+                    _data.add(d)
+                }
+            })
+            dialog.show(childFragmentManager, "NewsAddDialogFragment")
+        }
+    }
+    public fun getDataList(): List<News> {
+        return _data
+    }
 }
