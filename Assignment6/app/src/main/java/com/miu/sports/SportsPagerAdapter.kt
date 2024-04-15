@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class SportsPagerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
-    override fun getItemCount(): Int =4
+    override fun getItemCount(): Int =6
 
     override fun createFragment(position: Int): Fragment {
         return when(position){

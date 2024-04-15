@@ -6,15 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import com.miu.sports.SportAddDialogFragment.OnAddSportsListener
 import com.miu.sports.databinding.FragmentSportsBinding
 
 
 class SportsFragment : Fragment() {
     private lateinit var _binding: FragmentSportsBinding
-    private lateinit var _data:List<Sport>
+    private lateinit var _data:ArrayList<Sport>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _data= listOf()
+        _data= arrayListOf()
     }
 
     override fun onCreateView(
@@ -30,8 +31,19 @@ class SportsFragment : Fragment() {
         val adapter=SportsRecyleViewAdapter(data)
         _binding.rvSports.layoutManager=GridLayoutManager(requireContext(),2)
         _binding.rvSports.adapter=adapter
+        _binding.btnAddSports.setOnClickListener{ _->
+            val dialog=SportAddDialogFragment()
+            dialog.SetOnAddSportsListener(object:OnAddSportsListener{
+                override fun saveSportsData(sport: Sport) {
+                    _data.add(sport)
+
+                }
+
+            })
+            dialog.show(childFragmentManager,"SportAddDialogFragment")
+        }
     }
-    public fun getDataList(): List<Sport> {
+    private fun getDataList(): List<Sport> {
         return _data
 
     }
