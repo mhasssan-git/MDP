@@ -8,4 +8,7 @@
         <item>Combat</item>
         <item>Play</item>
     </string-array>
+    <string name="about_me">I am an enthusiastic engineer who takes initiative and has strong problem-solving and analytical skills.
+With almost 10 Years of professional experience in Full Stack Dot Net development, I have skills of leading design and development large scale projects. My expertise in C#, ASP.NET MVC, ASP.NET Core Web API, MS SQL Server, Entity Framework, React, Angular, Azure DevOps, Microservice, OAUTH , and AWS is truly impactful. Having team lead experience and collaborative team member who streamlines development and implementation by troubleshooting, analyzing and reviewing Code. I also have excellent academic knowledge of Java, Spring and Node. With all this expertise, professional and personal, making me an asset to any team or project. I am a team player ; quick learner and I have worked in a multicultural environment.</string>
+    <string name="name">Md Mahmudul Hassan</string>
 </resources>

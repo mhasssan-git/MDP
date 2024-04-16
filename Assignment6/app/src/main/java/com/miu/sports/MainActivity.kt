@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                     tab.text="Events"
                 }
                 4->{
-                    tab.text="historical Archives"
+                    tab.text="Historical Archives"
                 }
                 5->{
                     tab.text="About"
