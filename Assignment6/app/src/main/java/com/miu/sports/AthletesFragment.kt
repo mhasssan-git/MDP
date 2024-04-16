@@ -1,5 +1,6 @@
 package com.miu.sports
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -33,9 +34,11 @@ class AthletesFragment : Fragment() {
         _binding.btnAddAthletes.setOnClickListener { _ ->
             val dialog = AtheleteAddDialogFragment()
             dialog.SetOnAddListner(object : OnAddListener<Data> {
+                @SuppressLint("NotifyDataSetChanged")
                 override fun saveData(data: Data) {
                     val d = data as Athlete
                     _data.add(d)
+                    adapter.notifyDataSetChanged()
                     Log.d("AthletesFragment",_data.size.toString())
                 }
             })

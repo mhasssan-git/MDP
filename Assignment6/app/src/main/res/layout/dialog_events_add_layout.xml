@@ -5,34 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/etImageUrl"
+    <TextView
+        android:id="@+id/tvLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
-        android:background="@drawable/rounded_edittext_bg"
-        android:entries="@array/sports_type"
-        android:hint="Image Url"
-        android:padding="15dp"
+        android:text="Add new Events"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etTitle"
+        android:id="@+id/etEventName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/rounded_edittext_bg"
-        android:hint="Title"
+        android:entries="@array/sports_type"
+        android:hint="Event Name"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvLabel"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="@+id/tvLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:hint="Select Date"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etImageUrl" />
+        app:layout_constraintTop_toBottomOf="@+id/etEventName" />
 
     <EditText
         android:id="@+id/etDescription"
@@ -43,10 +57,10 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/rounded_edittext_bg"
         android:gravity="top"
-        android:hint="Description"
+        android:hint="Event Description"
         android:inputType="textMultiLine"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,24 +15,23 @@ import com.miu.sports.databinding.DialogSportsAddLayoutBinding
 
 class NewsAddDialogFragment : AddDialogFragment() {
 
-    private lateinit var etImageUrl: EditText
-    private lateinit var etTitle: EditText
-    private lateinit var etDescription: EditText
+    private lateinit var _binding: DialogNewsAddLayoutBinding
     override fun onOkButtonSubmit() {
         _listner.saveData(
             News(
-                etImageUrl.text.toString(),
-                etTitle.text.toString(), etDescription.text.toString()
+                _binding.etImageUrl.text.toString(),
+                _binding.etTitle.text.toString(),
+                _binding.etDescription.text.toString()
             )
         )
     }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        SetLayout(R.layout.dialog_news_add_layout)
-        val builder = super.onCreateDialog(savedInstanceState)
-        etImageUrl = getDialogView().findViewById<EditText>(R.id.etImageUrl)
-        etTitle = getDialogView().findViewById<EditText>(R.id.etTitle)
-        etDescription = getDialogView().findViewById<EditText>(R.id.etDescription)
-        return builder;
+        val inflater = requireActivity().layoutInflater
+        _binding = DialogNewsAddLayoutBinding.inflate(inflater)
+        setDialogView(_binding.root)
+        return super.onCreateDialog(savedInstanceState)
+
     }
 
 

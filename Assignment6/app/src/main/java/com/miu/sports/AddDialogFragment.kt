@@ -3,13 +3,16 @@ package com.miu.sports
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 
 abstract class AddDialogFragment : DialogFragment() {
     protected lateinit var _listner: OnAddListener<Data>
     private var _layout:Int=0
-    protected lateinit var _view: View
+    private lateinit var _view: View
+
     public fun SetOnAddListner(listener: OnAddListener<Data>) {
         _listner = listener
     }
@@ -22,12 +25,22 @@ abstract class AddDialogFragment : DialogFragment() {
     {
         return _view;
     }
+    protected fun setDialogView(view: View){
+        this._view=view
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireActivity())
-        val inflater = requireActivity().layoutInflater
-        _view = inflater.inflate(_layout, null)
         builder.setView(_view)
-            .setPositiveButton("OK") { dialog, _ ->
+            .setPositiveButton("Add") { dialog, _ ->
                 onOkButtonSubmit()
                 dialog.dismiss()
             }

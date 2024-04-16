@@ -1,5 +1,6 @@
 package com.miu.sports
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,9 +36,11 @@ class NewsFragment : Fragment() {
         _binding.btnAddNews.setOnClickListener { _ ->
             val dialog = NewsAddDialogFragment()
             dialog.SetOnAddListner(object : OnAddListener<Data> {
+                @SuppressLint("NotifyDataSetChanged")
                 override fun saveData(data: Data) {
                     val d = data as News
                     _data.add(d)
+                    adapter.notifyDataSetChanged()
                 }
             })
             dialog.show(childFragmentManager, "NewsAddDialogFragment")

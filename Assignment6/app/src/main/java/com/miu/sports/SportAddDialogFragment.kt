@@ -10,25 +10,24 @@ import android.widget.EditText
 import android.widget.Spinner
 import androidx.fragment.app.DialogFragment
 import com.miu.sports.databinding.DialogSportsAddLayoutBinding
+import com.miu.sports.databinding.SportsItemLayoutBinding
 
 class SportAddDialogFragment : AddDialogFragment() {
-    private lateinit var spSpinner: Spinner
-    private lateinit var name: EditText
-    private lateinit var instruction: EditText
+    private lateinit var _binding: DialogSportsAddLayoutBinding
     override fun onOkButtonSubmit() {
         _listner.saveData(
             Sport(
-                spSpinner.selectedItem.toString(),
-                name.text.toString(), instruction.text.toString()
+                _binding.spSportsType.selectedItem.toString(),
+                _binding.name.text.toString(),
+                _binding.instruction.text.toString()
             )
         )
     }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        SetLayout(R.layout.dialog_sports_add_layout)
-        val builder = super.onCreateDialog(savedInstanceState)
-        spSpinner = getDialogView().findViewById<Spinner>(R.id.spSportsType)
-        name = getDialogView().findViewById<EditText>(R.id.name)
-        instruction = getDialogView().findViewById<EditText>(R.id.instruction)
-        return builder;
+        val inflater = requireActivity().layoutInflater
+        _binding = DialogSportsAddLayoutBinding.inflate(inflater)
+        setDialogView(_binding.root)
+        return super.onCreateDialog(savedInstanceState)
     }
 }
