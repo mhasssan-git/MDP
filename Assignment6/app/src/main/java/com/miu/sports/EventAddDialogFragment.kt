@@ -43,7 +43,7 @@ class EventAddDialogFragment : AddDialogFragment() {
                 requireContext(),
                 DatePickerDialog.OnDateSetListener { _, selectedYear, selectedMonth, selectedDay ->
                     // Handle date selection
-                    val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                    val selectedDate = "${selectedMonth + 1}/${selectedDay}/$selectedYear"
                     _binding.tvDate.text = selectedDate
                 },
                 year,

@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<TextView
+    android:id="@+id/tvLabel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Add new Sports"
+    android:textSize="30sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginStart="50dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginEnd="50dp"
+    />
     <Spinner
         android:id="@+id/spSportsType"
         android:layout_width="match_parent"
@@ -13,19 +25,20 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:entries="@array/sports_type"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/tvLabel"
+        app:layout_constraintStart_toStartOf="@+id/tvLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
 
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
-        android:hint="Name"
         android:background="@drawable/rounded_edittext_bg"
+        android:hint="Name"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spSportsType" />
@@ -37,10 +50,11 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
-        android:hint="Instruction"
         android:background="@drawable/rounded_edittext_bg"
         android:gravity="top"
+        android:hint="Instruction"
         android:inputType="textMultiLine"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />

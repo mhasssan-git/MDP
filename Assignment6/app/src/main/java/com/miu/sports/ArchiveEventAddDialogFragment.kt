@@ -55,6 +55,7 @@ class ArchiveEventAddDialogFragment : AddDialogFragment() {
                 month,
                 day
             )
+            datePickerDialog.datePicker.minDate = getMinimumDate()
             datePickerDialog.show()
         }
 
@@ -62,5 +63,9 @@ class ArchiveEventAddDialogFragment : AddDialogFragment() {
 
     }
 
-
+    private fun getMinimumDate(): Long {
+        val calendar = Calendar.getInstance()
+        calendar.set(1800, 0, 1) // Set the minimum date to January 1, 1800
+        return calendar.timeInMillis
+    }
 }

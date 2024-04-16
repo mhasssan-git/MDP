@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--name space is needed to use app:showAsAction="ifRoom“-->
+    <item
+        android:id="@+id/mNews"
+        android:icon="@drawable/news"
+        android:title="News" />
+    <item
+        android:id="@+id/mEvents"
+        android:icon="@drawable/event"
+        android:title="Events" />
+    <item
+        android:id="@+id/mHisoty"
+        android:icon="@drawable/archive"
+        android:title="Historical Archives" />
+    <!-- Here app is name space name which is defined in the menu header part-->
+</menu>

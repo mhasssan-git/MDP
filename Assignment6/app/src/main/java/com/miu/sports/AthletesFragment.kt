@@ -32,17 +32,25 @@ class AthletesFragment : Fragment() {
         _binding.rvAtheletes.layoutManager = LinearLayoutManager(requireContext())
         _binding.rvAtheletes.adapter = adapter
         _binding.btnAddAthletes.setOnClickListener { _ ->
-            val dialog = AtheleteAddDialogFragment()
-            dialog.SetOnAddListner(object : OnAddListener<Data> {
-                @SuppressLint("NotifyDataSetChanged")
-                override fun saveData(data: Data) {
-                    val d = data as Athlete
-                    _data.add(d)
-                    adapter.notifyDataSetChanged()
-                    Log.d("AthletesFragment",_data.size.toString())
-                }
-            })
-            dialog.show(childFragmentManager, "SportAddDialogFragment")
+            try {
+                val dialog = AtheleteAddDialogFragment()
+                dialog.SetOnAddListner(object : OnAddListener<Data> {
+                    @SuppressLint("NotifyDataSetChanged")
+                    override fun saveData(data: Data) {
+                        val d = data as Athlete
+                        _data.add(d)
+                        adapter.notifyDataSetChanged()
+                        Log.d("AthletesFragment",_data.size.toString())
+                    }
+                })
+                dialog.show(childFragmentManager, "SportAddDialogFragment")
+
+            }
+            catch (ex:Exception)
+            {
+                var str=ex.message
+            }
+
         }
     }
     public fun getDataList(): ArrayList<Athlete> {

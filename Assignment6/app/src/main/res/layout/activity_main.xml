@@ -21,7 +21,15 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/SportsPage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="75dp"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="-75dp"
+            app:menu="@menu/mymenu" />
     </LinearLayout>
 
 </FrameLayout>

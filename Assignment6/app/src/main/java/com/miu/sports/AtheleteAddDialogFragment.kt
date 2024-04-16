@@ -3,34 +3,25 @@ package com.miu.sports
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.EditText
+import com.miu.sports.databinding.DialogAtheleteAddLayoutBinding
+import com.miu.sports.databinding.DialogNewsAddLayoutBinding
 
 class AtheleteAddDialogFragment : AddDialogFragment() {
-    private lateinit var etName: EditText
-    private lateinit var etSport: EditText
-    private lateinit var etCountry: EditText
-    private lateinit var etPersonalBest: EditText
-    private lateinit var etAward: EditText
-    private lateinit var etFact: EditText
+    private lateinit var _binding: DialogAtheleteAddLayoutBinding
     override fun onOkButtonSubmit() {
         _listner.saveData(
             Athlete(
-                etName.text.toString(),
-                etSport.text.toString(), etCountry.text.toString(),
-                etPersonalBest.text.toString(),
-                etAward.text.toString(), etFact.text.toString()
+                _binding.etName.text.toString(),
+                _binding.etSport.text.toString(), _binding.etCountry.text.toString(),
+                _binding.etPersonalBest.text.toString(),
+                _binding.etAward.text.toString(), _binding.etFact.text.toString()
             )
         )
     }
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        SetLayout(R.layout.dialog_athelete_add_layout)
-        val builder = super.onCreateDialog(savedInstanceState)
-        etName = getDialogView().findViewById<EditText>(R.id.etName)
-        etSport = getDialogView().findViewById<EditText>(R.id.etSport)
-        etCountry = getDialogView().findViewById<EditText>(R.id.etCountry)
-
-        etPersonalBest = getDialogView().findViewById<EditText>(R.id.etPersonalBest)
-        etAward = getDialogView().findViewById<EditText>(R.id.etAward)
-        etFact = getDialogView().findViewById<EditText>(R.id.etFact)
-        return builder;
+        val inflater = requireActivity().layoutInflater
+        _binding = DialogAtheleteAddLayoutBinding.inflate(inflater)
+        setDialogView(_binding.root)
+        return super.onCreateDialog(savedInstanceState)
     }
 }
