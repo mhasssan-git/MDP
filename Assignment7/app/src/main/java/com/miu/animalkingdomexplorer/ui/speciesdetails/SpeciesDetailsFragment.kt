@@ -1,60 +1,80 @@
 package com.miu.animalkingdomexplorer.ui.speciesdetails
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.miu.animalkingdomexplorer.R
+import com.miu.animalkingdomexplorer.data.model.Animal
+import com.miu.animalkingdomexplorer.data.model.Data
+import com.miu.animalkingdomexplorer.data.model.Species
+import com.miu.animalkingdomexplorer.data.repository.AnimalRepository
+import com.miu.animalkingdomexplorer.data.repository.SpeciesRepository
+import com.miu.animalkingdomexplorer.databinding.FragmentAnimalDetailsBinding
+import com.miu.animalkingdomexplorer.databinding.FragmentSpeciesDetailsBinding
+import com.miu.animalkingdomexplorer.ui.BaseFragment
+import com.miu.animalkingdomexplorer.ui.OnAddListener
+import com.miu.animalkingdomexplorer.ui.animaldetails.AnimalAdapter
+import com.miu.animalkingdomexplorer.ui.animaldetails.AnimalAddDialogFragment
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SpeciesDetailsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SpeciesDetailsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class SpeciesDetailsFragment : BaseFragment() {
+
+    private lateinit var binding: FragmentSpeciesDetailsBinding
+    private lateinit var repository: SpeciesRepository
+    private lateinit var _binding: FragmentSpeciesDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_species_details, container, false)
+        _binding = FragmentSpeciesDetailsBinding.inflate(inflater, container, false)
+
+        return _binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SpeciesDetailsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SpeciesDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding.rvSpeciesDetails.layoutManager = LinearLayoutManager(requireContext())
+        repository = SpeciesRepository(this.requireContext())
+
+
+        repository.specieses.observe(viewLifecycleOwner) {
+            val speciesAdapter = SpeciesAdapter(it)
+            _binding.rvSpeciesDetails.adapter = speciesAdapter
+        }
+
+        launch {
+            repository.getSpecies()
+        }
+        _binding.buttonAdd.setOnClickListener { _ ->
+            val dialog = SpeciesAddDialogFragment()
+            dialog.SetOnAddListner(object : OnAddListener<Data> {
+                @SuppressLint("NotifyDataSetChanged")
+                override suspend fun saveData(data: Data) {
+                    val d = data as Species
+                    launch (Dispatchers.IO) {
+                        repository.insertSpecies(d)
+                    }
+                    launch {
+                        repository.getSpecies()
+                    }
+
                 }
-            }
+
+            })
+            dialog.show(childFragmentManager, "SpeciesAddDialogFragment")
+        }
     }
 }
