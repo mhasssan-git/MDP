@@ -30,7 +30,13 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration)
 
-
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            supportActionBar?.title = when (destination.id) {
+                R.id.speciesDetailsFragment -> "Species Details"
+                R.id.animalDetailsFragment -> "Animal Details"
+                else -> "Dashboard"
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
