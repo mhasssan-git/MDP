@@ -15,23 +15,24 @@ import kotlin.coroutines.CoroutineContext
 
 abstract class AddDialogFragment : DialogFragment(), CoroutineScope {
     protected lateinit var _listner: OnAddListener<Data>
-    private var _layout:Int=0
+    private var _layout: Int = 0
     private lateinit var _view: View
 
     public fun SetOnAddListner(listener: OnAddListener<Data>) {
         _listner = listener
     }
-    protected  abstract  fun onOkButtonSubmit()
-    protected  fun SetLayout(layout:Int)
-    {
-        this._layout=layout
+
+    protected abstract fun onOkButtonSubmit(): Boolean
+    protected fun SetLayout(layout: Int) {
+        this._layout = layout
     }
-    protected  fun getDialogView():View
-    {
+
+    protected fun getDialogView(): View {
         return _view;
     }
-    protected fun setDialogView(view: View){
-        this._view=view
+
+    protected fun setDialogView(view: View) {
+        this._view = view
     }
 
     override fun onCreateView(
@@ -42,29 +43,39 @@ abstract class AddDialogFragment : DialogFragment(), CoroutineScope {
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireActivity())
         builder.setView(_view)
-            .setPositiveButton("Add") { dialog, _ ->
-                onOkButtonSubmit()
-                dialog.dismiss()
-            }
+            .setPositiveButton("Add", null)
             .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.dismiss()
             }
 
-        return builder.create()
+        val dialog = builder.create()
+        dialog.setOnShowListener {
+            val addButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            addButton.setOnClickListener {
+                var isValid = onOkButtonSubmit()
+                if (isValid) {
+                    dialog.dismiss()
+                }
+            }
+        }
+        return dialog
     }
 
     private lateinit var job: Job
     override val coroutineContext: CoroutineContext
         // To perform the Job, Displatchers.Main is used for CoroutineContext
         get() = job + Dispatchers.Main
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Create an Instance for the Job()
         job = Job()
     }
+
     override fun onDestroy() {
         super.onDestroy()
         // Cancel the Job
